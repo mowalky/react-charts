@@ -1,3 +1,4 @@
+import Amchart from "./amchart";
 import Chart from "./Chart";
 import { faker } from "@faker-js/faker";
 import { useState } from "react";
@@ -29,6 +30,9 @@ function App() {
   return (
     <div className="App">
       <Chart data={data} />
+      <hr />
+
+      <Amchart />
     </div>
   );
 }
