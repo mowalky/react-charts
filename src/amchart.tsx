@@ -4,7 +4,7 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 import React, { useLayoutEffect } from "react";
 import "./App.css";
 
-const Amchart = () => {
+const Amchart = ({ data }: any) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useLayoutEffect(() => {
     let root = am5.Root.new("chartdiv");
@@ -17,25 +17,6 @@ const Amchart = () => {
         layout: root.verticalLayout,
       })
     );
-
-    // Define data
-    let data = [
-      {
-        category: "Research",
-        value1: 1000,
-        value2: 588,
-      },
-      {
-        category: "Marketing",
-        value1: 1200,
-        value2: 1800,
-      },
-      {
-        category: "Sales",
-        value1: 850,
-        value2: 1230,
-      },
-    ];
 
     // Create Y-axis
     let yAxis = chart.yAxes.push(
@@ -86,7 +67,7 @@ const Amchart = () => {
     return () => {
       root.dispose();
     };
-  }, []);
+  }, [data]);
 
   return <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>;
 };

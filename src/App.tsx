@@ -24,15 +24,58 @@ const initial = {
     },
   ],
 };
+
+const amdata = [
+  {
+    category: "Research",
+    value1: 1000,
+    value2: 588,
+  },
+  {
+    category: "Marketing",
+    value1: 1200,
+    value2: 1800,
+  },
+  {
+    category: "Sales",
+    value1: 850,
+    value2: 1230,
+  },
+];
+
 function App() {
   const [data, setData] = useState(initial);
+  const [adata, setAData] = useState(amdata);
+
+  const randomize = () => {
+    let random = [
+      {
+        category: "Research",
+        value1: Math.random() * 1000,
+        value2: 588,
+      },
+      {
+        category: "Marketing",
+        value1: Math.random() * 1000,
+        value2: 1800,
+      },
+      {
+        category: "Sales",
+        value1: Math.random() * 1000,
+        value2: 1230,
+      },
+    ];
+
+    setAData(random);
+  };
 
   return (
     <div className="App">
       <Chart data={data} />
       <hr />
-
-      <Amchart />
+      {JSON.stringify(adata)}
+      <button onClick={randomize}>randomize</button>
+      <Amchart data={adata} />
     </div>
   );
 }
